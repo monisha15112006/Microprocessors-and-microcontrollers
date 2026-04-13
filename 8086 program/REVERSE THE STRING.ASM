@@ -1,0 +1,27 @@
+
+                OUTPUT 2500AD
+.ORG 2000H
+DATA SEGMENT
+STRING1 DB 'HELLO'
+REVSTRING DB 00H,00H,00H,00H,00H
+COUNT DW 0005H
+DATA ENDS
+CODE SEGMENT
+        ASSUME CS:CODE,DS:DATA,ES:DATA
+        MOV AX,DATA
+        MOV DS,AX
+        MOV ES,AX
+        MOV CX,COUNT
+        LEA SI,STRING1
+        LEA DI,REVSTRING
+        ADD SI,CX
+        DEC SI
+L1:     MOV AL,[SI]
+        MOV [DI],AL
+        DEC SI
+        INC DI
+        DEC CL
+        JNZ L1
+        HLT
+CODE ENDS
+END
