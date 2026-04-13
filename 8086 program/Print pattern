@@ -1,3 +1,7 @@
+     A
+  A  A  A
+A         A
+
 CODE SEGMENT
         ASSUME CS:CODE
 START:
